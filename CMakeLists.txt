@@ -3,7 +3,7 @@ project(event_scheduler)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES EventScheduler.cpp EventScheduler.h)
+set(SOURCE_FILES EventScheduler.cpp EventScheduler.h EventSchedulerImp.cpp EventSchedulerImp.h)
 add_executable(event_scheduler main.cpp ${SOURCE_FILES})
 
 
@@ -42,7 +42,7 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
 endif()
 
 # Now simply link against gtest or gtest_main as needed. Eg
-set(UNITTESTS_SOURCE_FILES)
+set(UNITTESTS_SOURCE_FILES unit_tests/EventScheduler.t.cpp)
 add_executable(event_scheduler_unittests ${SOURCE_FILES} ${UNITTESTS_SOURCE_FILES})
 target_link_libraries(event_scheduler_unittests gtest_main)
 add_test(NAME event_scheduler_unittests COMMAND event_scheduler_unittests)
